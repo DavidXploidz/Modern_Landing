@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root{
+    --colorprimary: #0d0d0e;
+    --colorsecondary: #FAFAFA;
+    --coloraccent: #7f45e2;
+    --ff: "DM Sans", sans-serif;
+    --h1: bold 54px var(--ff);
+    --h2: bold 36px var(--ff);
+    --h3: bold 24px var(--ff);
+    --links: bold 18px/18px var(--ff);
+    --p: 18px var(--ff);
+    --subtext: 12px var(--ff);
+    --transition: 0.3s ease-in-out;
+}
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+body{
+    font-size: var(--p);
+    font-family: var(--ff);
+    min-height: 100vh;
+    background-color: var(--colorprimary);
+}
+img, picture, svg, video{
+    display: block;
+    max-width: 100%;
+}
+input, textarea, button, select{
+    font: inherit;
+}
+h1{
+    font: var(--h1);
+    margin-bottom: 1rem;
+}
+h2{
+    font: var(--h2);
+    margin-bottom: .7rem;
+}
+h3{
+    font: var(--h3);
+    margin-bottom: .5rem;  
+}
+:is(h1, h2, h3){
+  text-wrap: balance;
+}
+p{
+    font: var(--p);
+    margin-bottom: .5rem;
+    text-wrap: balance;
+}
+/* Utilidades */
+.links{
+    font: var(--links);
+    margin-top: 8px;
+}
+.subtext{
+    font: var(--subtext);
+    margin-top: -8px;
+}
+.contenedor{
+    width: min(90%, 120rem);
+    margin-inline: auto;
+}
+.grid{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(min(400px, 100%), 1fr));
+}
+.header{
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    overflow: hidden;
+}
+.header__glass{
+    grid-area: 1 / 1 / 4 / 6;
+    z-index: 1;
+    min-height: inherit;
+    /* Glassmorphism */
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-image: linear-gradient(120deg, rgba(13,13,14,0.4), rgba(13,13,14,0.4));
+}
+.header__title{
+    color: var(--colorsecondary);
+    text-align: center;
+    grid-area: 2 / 1 / 4 / 6;
+    align-self: center;
+    z-index: 2;
+    font-size: clamp(3.75rem, 3.0978rem + 3.2609vw, 5.625rem);
+    max-width: 820px;
+    margin-inline: auto;
+    line-height: 1;
+}
+.header__title span{
+    color: var(--coloraccent);
+    text-shadow: 0px 3px 5px var(--colorprimary);
+}
+.header__blob{
+    grid-area: 2 / 1 / 3 / 6;
+    animation: fade 5s infinite linear alternate-reverse;
+    animation-delay: -2s;
+    opacity: 0;
+}
+@media (min-width: 962px){ 
+    .header__title{
+        grid-area: 1 / 1 / 4 / 6;
+    }
+    .header__blob{
+        grid-area: 1 / 2 / 4 / 6;
+    }
+}
+.header__blob--two{
+    animation-delay: -4s;
+}
+.header__blob--three{
+    animation-delay: -7s;
+}
+@keyframes fade {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
