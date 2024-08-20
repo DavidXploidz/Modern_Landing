@@ -91,6 +91,7 @@ p{
     gap: 1rem;
     grid-template-columns: repeat(auto-fit,minmax(min(400px, 100%), 1fr));
 }
+/* Header styles */
 .header{
     min-height: 100dvh;
     display: grid;
@@ -108,7 +109,7 @@ p{
     -webkit-backdrop-filter: blur(20px);
     background-image: linear-gradient(120deg, rgba(13,13,14,0.4), rgba(13,13,14,0.4));
 }
-.header__title{
+.header__title, .main__title{
     color: var(--colorsecondary);
     text-align: center;
     grid-area: 2 / 1 / 4 / 6;
@@ -121,7 +122,7 @@ p{
     margin-bottom: 0;
     padding-inline: min(3vw, 2rem);
 }
-.header__title span{
+.header__title span, .main__title span{
     color: var(--coloraccent);
     text-shadow: 0px 3px 5px var(--colorprimary);
 }
@@ -175,6 +176,7 @@ p{
 .nav-bar :not([class]):hover{
     color: var(--coloraccent);
 }
+/* Carrousel styles */
 .carrousel{
     width: 100%;
     height: 200px;
@@ -218,4 +220,78 @@ p{
     to{
         left: -250px;
     }
+}
+/* Main styles */
+.main__title{
+    font-size: clamp(4rem, 3.8261rem + 0.8696vw, 4.5rem);
+    padding: 0;
+}
+.main__text{
+    margin-top: 3rem;
+    text-align: center;
+    color: var(--colorgray);
+    max-width: 700px;
+    margin-inline: auto;
+}
+.main__grid{
+    margin-block: 3rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+        "horror horror horror horror"
+        "drama drama comedy comedy"
+        "superhero superhero superhero superhero"
+        "action action action action"
+        "scifi scifi scifi scifi"
+    ;
+}
+@media (min-width: 668px){ 
+    .main__grid{
+        grid-template-areas: 
+            "drama horror horror horror"
+            "superhero superhero superhero comedy"
+            "action scifi scifi scifi"
+        ;
+    }
+}
+@media (min-width: 992px){ 
+    .main__grid{
+        grid-template-areas: 
+            "horror horror comedy action"
+            "horror horror superhero superhero"
+            "scifi scifi scifi drama"
+        ;
+    }
+}
+.card{
+    padding: 1rem;
+    background-color: #141415;
+    border-radius: .5rem;
+    box-shadow: inset 0 0 1px var(--colorgray);
+}
+.card:nth-child(1){
+    grid-area: action;
+}
+.card:nth-child(2){
+    grid-area: comedy;
+}
+.card:nth-child(3){
+    grid-area: drama;
+}
+.card:nth-child(4){
+    grid-area: horror;
+}
+.card:nth-child(5){
+    grid-area: superhero;
+}
+.card:nth-child(6){
+    grid-area: scifi;
+}
+.card__title{
+    color: var(--coloraccent);
+    font-weight: 500;
+}
+.card__text{
+    color: var(--colorgray);
 }
