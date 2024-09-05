@@ -352,7 +352,7 @@ p{
         /* border: 2px solid blue; */
     }
     .testimonial__card:nth-child(4){
-        grid-area: 4 / 1 / 7 / 2;
+        grid-area: 4 / 1 / 6 / 2;
         /* border: 2px solid limegreen; */
     }
     .testimonial__card:nth-child(5){
