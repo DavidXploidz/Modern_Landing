@@ -223,6 +223,9 @@ p{
     }
 }
 /* Main styles */
+.main{
+    overflow-x: hidden;
+}
 .main__title{
     font-size: clamp(4rem, 3.8261rem + 0.8696vw, 4.5rem);
     padding: 0;
@@ -299,6 +302,7 @@ p{
 /* Testimonials */
 .testimonial{
     padding-block: 3rem;
+    overflow-x: hidden;
 }
 .testimonial__title{
     text-align: center;
