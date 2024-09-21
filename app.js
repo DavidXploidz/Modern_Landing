@@ -52,4 +52,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
             testimonial_tl.from(testimonial, {x: 500, opacity: 0, filter: "blur(10px)"})
         }
     }
+
+    // price
+    const price_tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.price',
+            start: 'top 60%',
+            end: 'top 10%',
+            scrub: 1,
+        }
+    });
+    price_tl.from(".price__title", {x: -500, opacity: 0, filter: "blur(10px)"})
+
+    const price_cards = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.price__row',
+            start: 'top 50%',
+            end: 'top 30%',
+            scrub: 1,
+        }
+    });
+    const cardPrices = document.querySelectorAll('.price__card');
+
+    for(let i = 0; i < cardPrices.length; i++){
+        const priceCard = cardPrices[i];
+        price_cards.from(priceCard, {x: -500, opacity: 0, filter: "blur(10px)", delay: i})
+    }
 });
