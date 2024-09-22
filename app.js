@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // price
     const price_tl = gsap.timeline({
         scrollTrigger: {
-            trigger: '.price',
+            trigger: '.price__title',
             start: 'top 60%',
             end: 'top 10%',
             scrub: 1,
@@ -67,8 +67,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const price_cards = gsap.timeline({
         scrollTrigger: {
             trigger: '.price__row',
-            start: 'top 50%',
-            end: 'top 30%',
+            start: 'top 80%',
+            end: 'top 50%',
             scrub: 1,
         }
     });

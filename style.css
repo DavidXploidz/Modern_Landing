@@ -18,6 +18,8 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -86,7 +88,7 @@ p{
     margin-top: -8px;
 }
 .contenedor{
-    width: min(90%, 120rem);
+    width: min(95%, 90rem);
     margin-inline: auto;
 }
 .grid{
