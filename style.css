@@ -1,19 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root{
+    /* Colors */
     --colorprimary: #0d0d0e;
     --colorprimary-700: #141415;
     --colorsecondary: #FAFAFA;
     --coloraccent: #7f45e2;
     --colorgray: #b8b6b8;
+    /* Fonts */
     --ff: "DM Sans", sans-serif;
-    --h1: bold 54px var(--ff);
-    --h2: bold 36px var(--ff);
-    --h3: bold 24px var(--ff);
+    /* Sizes */
+    --step--3: clamp(0.576rem, 0.5796rem + -0.0047vw, 0.5787rem);
+    --step--2: clamp(0.6944rem, 0.6856rem + 0.0444vw, 0.72rem);
+    --step--1: clamp(0.8333rem, 0.8101rem + 0.1159vw, 0.9rem);
+    --step-0: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+    --step-1: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem);
+    --step-2: clamp(1.44rem, 1.3295rem + 0.5527vw, 1.7578rem);
+    --step-3: clamp(1.728rem, 1.5648rem + 0.8161vw, 2.1973rem);
+    --step-4: clamp(2.0736rem, 1.8395rem + 1.1704vw, 2.7466rem);
+    --step-5: clamp(2.4883rem, 2.1597rem + 1.6433vw, 3.4332rem);
+    --step-6: clamp(2.986rem, 2.5319rem + 2.2705vw, 4.2915rem);
+    --h1: bold var(--step-6) var(--ff);
+    --h2: bold var(--step-5) var(--ff);
+    --h3: bold var(--step-4) var(--ff);
     --links: bold 18px/18px var(--ff);
-    --p: 18px var(--ff);
-    --subtext: 12px var(--ff);
+    --p: var(--step-0) var(--ff);
+    --subtext: var(--step--1) var(--ff);
     --transition: 0.3s ease-in-out;
+
 }
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
@@ -56,6 +70,7 @@ h3{
 }
 :is(h1, h2, h3){
   text-wrap: balance;
+  color: var(--colorsecondary);
 }
 p{
     font: var(--p);
@@ -96,6 +111,9 @@ p{
     gap: 1rem;
     grid-template-columns: repeat(auto-fit,minmax(min(400px, 100%), 1fr));
 }
+.text-center{
+    text-align: center;
+}
 /* Header styles */
 .header{
     min-height: 100dvh;
@@ -120,7 +138,6 @@ p{
     grid-area: 2 / 1 / 4 / 6;
     align-self: center;
     z-index: 2;
-    font-size: clamp(3.75rem, 3.0978rem + 3.2609vw, 5.625rem);
     max-width: 870px;
     margin-inline: auto;
     line-height: 1;
@@ -444,4 +461,77 @@ p{
         width: 100%;
         font-weight: bold;
     }
+}
+.faq-container {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 37.5rem;
+    padding: 2rem;
+    border-radius: 1em;
+    background-color: var(--colorprimary);
+}
+details {
+    font-size: 1rem;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 0.5rem;
+    position: relative;
+    max-width: 37.5rem;
+    transition: var(--transition);
+}
+details:hover {
+    background-color: var(--colorprimary-700);
+}
+details:hover svg {
+    stroke: var(--coloraccent);
+}
+details[open] {
+    background-color: var(--colorprimary-700);
+}
+details[open] .faq-title {
+    color: var(--coloraccent);
+}
+summary {
+    user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    list-style: none;
+    padding: 1rem;
+    align-items: center;
+}
+summary svg {
+    stroke: var(--colorgray);
+}
+details[open] summary svg {
+    stroke: var(--coloraccent);
+    transform: rotate(90deg);
+} 
+summary:hover .faq-title {
+    color: var(--coloraccent);
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+summary:focus {
+    outline: none;
+}
+.faq-title {
+    color: var(--colorgray);
+    width: 90%;
+    transition: var(--transition);
+}
+.faq-content {
+    color: var(--colorgray);
+    padding: 0.2rem 1rem 1rem 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+.expand-icon {
+    pointer-events: none;
+    position: absolute;
+    right: 1rem;
+    transition: var(--transition);
 }

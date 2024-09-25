@@ -72,10 +72,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
             scrub: 1,
         }
     });
+
     const cardPrices = document.querySelectorAll('.price__card');
 
     for(let i = 0; i < cardPrices.length; i++){
         const priceCard = cardPrices[i];
-        price_cards.from(priceCard, {x: -500, opacity: 0, filter: "blur(10px)", delay: i})
+        price_cards.from(priceCard, {x: -500, opacity: 0, filter: "blur(10px)"})
+    }
+
+    // FAQs
+    const faqs_tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.faq',
+            start: 'top 60%',
+            end: 'top 20%',
+            scrub: 1,
+        }
+    });
+    faqs_tl.from(".faq h2", {x: -500, opacity: 0, filter: "blur(10px)"})
+
+    const card_faq = document.querySelectorAll('.faq-container details');
+
+    for(let i = 0; i < card_faq.length; i++){
+        const faq = card_faq[i];
+        faqs_tl.from(faq, {y: -300, opacity: 0, filter: "blur(10px)"})
+        faqs_tl.to(faq, {y: 0, opacity: 1, filter: "blur(0px)"})
     }
 });
