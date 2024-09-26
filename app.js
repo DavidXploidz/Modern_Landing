@@ -98,4 +98,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
         faqs_tl.from(faq, {y: -300, opacity: 0, filter: "blur(10px)"})
         faqs_tl.to(faq, {y: 0, opacity: 1, filter: "blur(0px)"})
     }
+
+    // Submenu
+    let subMenu = document.querySelector(".sub-menu");
+
+    window.addEventListener("click", (e) => {
+        if(e.target.closest(".toggle")){
+            subMenu.style.display = "flex";
+        }else{
+            subMenu.style.display = "none";
+        }
+    });
+
 });
